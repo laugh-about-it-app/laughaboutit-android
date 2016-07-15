@@ -9,8 +9,12 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Navigator
 } from 'react-native';
+
+import Intro from './App-Android/components/intro.js';
+import Home from './App-Android/components/home.js';
 
 class laughaboutit extends Component {
   render() {
@@ -22,9 +26,8 @@ class laughaboutit extends Component {
         <Text style={styles.instructions}>
           To get started, edit index.android.js
         </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
+        <Intro />
+        <Home />
       </View>
     );
   }
