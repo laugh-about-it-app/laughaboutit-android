@@ -25,4 +25,12 @@ var User = sequelize.define('user', {
 		type: Sequelize.INTEGER,
 		field: 'lastName'
 	},
+	login : {
+		type: Sequelize.STRING,
+		field: 'login'
+	},
+	email: {
+		type: Sequelize.STRING,
+		field: 'email'
+	},
 })
