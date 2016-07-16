@@ -24,7 +24,9 @@ class Home extends Component {
         source={{uri:'http://cdn.lookanimals.com/pictures/www.hdwallpapers.in/walls/yellow_labrador_puppy-wide.jpg'}}
       />
       <Text> More Puppies </Text>
-      <TouchableHighlight onPress={this.props.onForward}>
+      <TouchableHighlight onPress={() => {
+        this.props.toPage('Intro');
+      }}>
         <Text> Next </Text>
       </TouchableHighlight> 
       </View>

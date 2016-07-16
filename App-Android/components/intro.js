@@ -42,7 +42,9 @@ class Intro extends Component {
       />
       </TouchableHighlight>
       <Text style={style.body}> {messagesArr[this.state.messageIdx]} </Text>
-      <TouchableHighlight onPress={this.props.onForward}>
+      <TouchableHighlight onPress={() => {
+        this.props.toPage('Home');
+      }}>
         <Text> Sign Up! </Text>
       </TouchableHighlight> 
       </View>
