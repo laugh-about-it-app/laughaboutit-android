@@ -3,7 +3,8 @@ import { Image,
        Text,
        View,
        AppRegistry,
-       StyleSheet
+       StyleSheet,
+       TouchableHighlight
        } from 'react-native';
 
 class Home extends Component {
@@ -23,6 +24,9 @@ class Home extends Component {
         source={{uri:'http://cdn.lookanimals.com/pictures/www.hdwallpapers.in/walls/yellow_labrador_puppy-wide.jpg'}}
       />
       <Text> More Puppies </Text>
+      <TouchableHighlight onPress={this.props.onForward}>
+        <Text> Next </Text>
+      </TouchableHighlight> 
       </View>
     );
   }
