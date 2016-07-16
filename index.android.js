@@ -16,6 +16,7 @@ import {
 
 import Intro from './App-Android/components/intro.js';
 import Home from './App-Android/components/home.js';
+import Signup from './App-Android/components/signup.js';
 
 // Main purpose of this class is to act as a router/navigator for the app. 
 class laughaboutit extends Component {
@@ -41,6 +42,7 @@ class laughaboutit extends Component {
         route.index > 0 ? navigator.pop() : null;
       }
 
+      // Main function to implement dynamic navigation:
       var toPage = (pageName) => {
         const nextIndex = route.index + 1;
         navigator.push({name: pageName, index: nextIndex});
@@ -56,7 +58,7 @@ class laughaboutit extends Component {
       }
 
       if (route.name === 'Signup') {
-        // Placeholder to insert signup. 
+        return <Signup title={'Signup'} navigator={navigator} onForward={onForward} toPage={toPage} {...route.passProps}/>
       }
     }
 

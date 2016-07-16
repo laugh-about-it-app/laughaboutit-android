@@ -8,6 +8,7 @@ import { Image,
        } from 'react-native';
 
 class Intro extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -44,6 +45,11 @@ class Intro extends Component {
       <Text style={style.body}> {messagesArr[this.state.messageIdx]} </Text>
       <TouchableHighlight onPress={() => {
         this.props.toPage('Home');
+      }}>
+        <Text style={style.body}> Next </Text>
+      </TouchableHighlight>
+      <TouchableHighlight onPress={() => {
+        this.props.toPage('Signup');
       }}>
         <Text> Sign Up! </Text>
       </TouchableHighlight> 
