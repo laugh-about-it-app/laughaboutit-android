@@ -7,7 +7,7 @@ import { Image,
        TouchableHighlight
        } from 'react-native';
 
-import TinderTest from './TinderTest.js';
+import Swiper from './Swipe.js'
 
 class Home extends Component {
   constructor(props) {
@@ -62,7 +62,7 @@ class Home extends Component {
     */
     return (
       <View style={styles.container}>
-        <TinderTest style={{flex: 1}}/>
+        <Swiper style={{flex: 1}}/>
       </View>
     );
   }

@@ -49,6 +49,7 @@ class TinderTest extends Component {
       cards: Cards,
       outOfCards: false
     }
+
   }
 
   handleYup (card) {
@@ -62,14 +63,14 @@ class TinderTest extends Component {
 
     let CARD_REFRESH_LIMIT = 3
 
-    if (this.cards.length - index <= CARD_REFRESH_LIMIT + 1) {
-      console.log(`There are only ${this.cards.length - index - 1} cards left.`);
+    if (this.state.cards.length - index <= CARD_REFRESH_LIMIT + 1) {
+      console.log(`There are only ${this.state.cards.length - index - 1} cards left.`);
 
-      if (!this.outOfCards) {
+      if (!this.state.outOfCards) {
         console.log(`Adding ${Cards2.length} more cards`)
 
         this.setState({
-          cards: this.cards.concat(Cards2),
+          cards: this.state.cards.concat(Cards2),
           outOfCards: true
         })
       }
@@ -90,7 +91,7 @@ class TinderTest extends Component {
 
         handleYup={this.handleYup}
         handleNope={this.handleNope}
-        cardRemoved={this.cardRemoved}
+        cardRemoved={this.cardRemoved.bind(this)}
       />
     )
   }
