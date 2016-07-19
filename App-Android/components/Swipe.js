@@ -5,7 +5,7 @@ import { StyleSheet,
 	Image } from 'react-native';
 
 // This component is used to provide the swipe functionality. 
-import SwipeCards from 'react-native-swipe-cards';
+import SwipeCards from '../util/SwipeCards.js';
 
 // The card component houses each card and will be dynamically rendered upon each
 // new swipe to a new card. 
