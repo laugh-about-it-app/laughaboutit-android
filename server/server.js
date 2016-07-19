@@ -34,11 +34,13 @@ return our results to the client.
 
  //authorization token? anonymous. 
 */
-app.get('/photos/all', function (req, res) {
-	$aja
-})
+app.get('/', function (req, res) {
+	res.send('Heyyy bitchez');
+});
 
-
+app.get('/favicon.ico', function (req, res) {
+	res.sendStatus(404);
+});
 // module.exports = {
 // 	dbUrl: dbUrl,
 // };
