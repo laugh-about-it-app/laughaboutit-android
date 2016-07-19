@@ -1,9 +1,8 @@
 {
   "name": "test2",
   "version": "0.0.1",
-  "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "start": "node server/server.js"
   },
   "dependencies": {
     "react": "15.2.1",
@@ -15,6 +14,6 @@
     "deco-ride-share-demo": "^1.1.0",
     "pg": "^6.0.2",
     "sequelize": "^3.23.4",
-    "request": "^2.73.0",
+    "request": "^2.73.0"
   }
 }
