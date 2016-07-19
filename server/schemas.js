@@ -133,7 +133,7 @@ module.exports = {
 	Photo: Photo,
 	Caption: Caption,
 	Hashtag: Hashtag
-}
+};
 
 
 
