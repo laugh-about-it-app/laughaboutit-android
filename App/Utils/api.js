@@ -1,4 +1,4 @@
-export let api = {
+export const api = {
   getUserInfo (user) {
     // function to get username, avatar
     /* example:
@@ -23,6 +23,9 @@ export let api = {
   },
   upVote (caption) {
     // function to upvote a particular caption
+  }, 
+  downVote (caption) {
+
   }
   // other functions.
 };
