@@ -12,8 +12,10 @@ app.listen(process.env.PORT || port, function () {
 	console.log('HIPS HIPS HIPS ' + port);
 });
 
-app.use(express.static(__dirname + '/../android/'));
-app.use(express.static(__dirname + '/../ios/'));
+// app.use(express.static(__dirname + '/../android/'));
+// app.use(express.static(__dirname + '/../ios/'));
+app.use(express.static(__dirname + '/../dummy.html'));
+
 ////////////////////////
 ////////ROUTING/////////
 ////////////////////////
