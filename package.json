@@ -1,19 +1,24 @@
 {
   "name": "test2",
   "version": "0.0.1",
+  "main": "server.js",
   "scripts": {
     "start": "node server/server.js"
   },
   "dependencies": {
+    "deco-ride-share-demo": "^1.1.0",
+    "express": "^4.14.0",
+    "pg": "^6.0.2",
     "react": "15.2.1",
     "react-native": "^0.29.2",
     "react-native-fabric": "^0.3.0",
     "react-native-fabric-digits": "github:jeanlebrument/react-native-fabric-digits",
     "react-native-fbsdk": "^0.2.2",
     "react-native-vector-icons": "^2.0.3",
-    "deco-ride-share-demo": "^1.1.0",
-    "pg": "^6.0.2",
-    "sequelize": "^3.23.4",
-    "request": "^2.73.0"
-  }
+    "request": "^2.73.0",
+    "sequelize": "^3.23.4"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
