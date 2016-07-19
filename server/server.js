@@ -39,7 +39,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/favicon.ico', function (req, res) {
-	res.sendStatus(404);
+	res.sendStatus(200);
 });
 // module.exports = {
 // 	dbUrl: dbUrl,
