@@ -9,11 +9,12 @@ var port = 5050;
 ////CONNECT TO SERVER
 var app = express();
 app.listen(process.env.PORT || port, function () {
-	console.log('HIPS HIPS HIPS ' + port);
+	console.log('Server listening at ' + port);
 });
 
 // app.use(express.static(__dirname + '/../android/'));
 // app.use(express.static(__dirname + '/../ios/'));
+
 app.use(express.static(__dirname + '/../dummy.html'));
 
 ////////////////////////
