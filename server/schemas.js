@@ -1,7 +1,7 @@
 var db = require('./server.js')
 var Sequelize = require('sequelize');
 
-///
+///(why) do we need this? 
 var sequelize = new Sequelize('postgres://qntzeozetttxxe:JDkRS8aTusHyPjDmp-YcWCK2qN@ec2-54-243-249-154.compute-1.amazonaws.com:5432/dfbtc6j4b2mtgi', {
 	dialect: 'postgres',
 	dialectOptions: {
@@ -38,7 +38,7 @@ var User = sequelize.define('user', {
 	freezeTableName: true
 });
 
-//DEFINE RELATIONSHIPS 
+//DEFINE USER RELATIONSHIPS 
 User.hasMany(Caption);
 ///create/upate user table if does not already exists
 User.sync()
@@ -46,7 +46,7 @@ User.sync()
   	console.error(err)
   });
 
-
+////// PHOTO
 var Photo = sequelize.define('photo', {
 	url: {
 		type: Sequelize.STRING,
@@ -62,15 +62,18 @@ var Photo = sequelize.define('photo', {
 	}
 });
 
+//sync tabe w db if not exists
 Photo.sync()
   .catch(function(err) {
   	console.error(err)
   });
 
+//DEFINE PHOTO RELATIONSHIPS 
 Photo.hasMany('caption');
 Photo.hasMany('hashtag');
-//may want Photo to belong to user as an extension !!
+/////may want Photo to belong to user as an extension !!
 
+////// CAPTION
 var Caption = sequelize.define('caption', {
 	likes: {
 		type: Sequelize.INTEGER,
@@ -90,14 +93,18 @@ var Caption = sequelize.define('caption', {
 	}
 });
 
+//sync tabe w db if not exists
 Caption.sync()
   .catch(function(err) {
   	console.error(err)
   });
 
+//DEFINE CAPTION RELATIONSHIPS 
 Caption.belongsTo('user');
 Caption.belongsTo('photo');
 
+
+////// HASHTAG
 var Hashtag = sequelize.define('hashtag', {
 	hashtag: {
 		type: Sequelize.STRING,
@@ -105,15 +112,26 @@ var Hashtag = sequelize.define('hashtag', {
 	}
 });
 
+//sync tabe w db if not exists
 Hashtag.sync()
   .catch(function(err) {
   	console.error(err)
   });
 
+//DEFINE HASHTAG RELATIONSHIPS 
+
 Hashtag.hasMany('photo');
 
-module.exports = User;
 
+
+///EXPORT THE DEFINITIONS FOR USER IN OTHER MODULES
+//*the key point of including these tables in addition to 
+//posicto-created Schema
+
+module.exports = User;
+module.exports = Photo;
+module.exports = Caption;
+module.exports = Hashtag;
 
 
 

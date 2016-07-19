@@ -8,10 +8,12 @@ var port = 5050;
 
 ////CONNECT TO SERVER
 var app = express();
-app.listen(port, function () {
+app.listen(process.env.PORT || port, function () {
 	console.log('HIPS HIPS HIPS ' + port);
 });
 
+app.use(express.static(__dirname + '/../android/'));
+app.use(express.static(__dirname + '/../ios/'));
 ////////////////////////
 ////////ROUTING/////////
 ////////////////////////
@@ -40,4 +42,3 @@ app.get('/photos/all', function (req, res) {
 // module.exports = {
 // 	dbUrl: dbUrl,
 // };
-
