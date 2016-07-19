@@ -9,11 +9,14 @@ var port = 5050;
 ////CONNECT TO SERVER
 var app = express();
 app.listen(process.env.PORT || port, function () {
-	console.log('HIPS HIPS HIPS ' + port);
+	console.log('Server listening at ' + port);
 });
 
-app.use(express.static(__dirname + '/../android/'));
-app.use(express.static(__dirname + '/../ios/'));
+// app.use(express.static(__dirname + '/../android/'));
+// app.use(express.static(__dirname + '/../ios/'));
+
+app.use(express.static(__dirname + '/../dummy.html'));
+
 ////////////////////////
 ////////ROUTING/////////
 ////////////////////////
@@ -39,7 +42,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/favicon.ico', function (req, res) {
-	res.sendStatus(404);
+	res.sendStatus(200);
 });
 // module.exports = {
 // 	dbUrl: dbUrl,

@@ -1,5 +1,6 @@
 export let api = {
   getUserInfo (user) {
+<<<<<<< HEAD
     console.log(user);
     //takes in info from user 'form' / Authentication
     //arranges it accord. w Sequelize schema
@@ -47,6 +48,31 @@ export let api = {
   }, 
   downVote (caption) {
     console.log(caption);
+=======
+    // function to get username, avatar
+    /* example:
+    username = username.toLowerCase().trim();
+    var url = `https://api.github.com/users/${username}`;
+    return fetch(url).then((res) => res.json())
+    */
+
+  },
+  getDailyCaptions () {
+    // function to get all images/captions for the day
+    // includes: caption text, image URL, vote count, user who posted ?
+  },
+  postCaption (caption) {
+    // function to post a user-created caption
+  },
+  showImageOptions () {
+    // function to get images from DB to propose to user for caption
+  },
+  updateUserInfo (user) {
+    // function to update user info from a settings page ( or elsewhere? )
+  },
+  upVote (caption) {
+    // function to upvote a particular caption
+>>>>>>> 1f08894c871f04ac8cd1b6ca22f3402c74e5a9e1
   }
   // other functions.
 };
