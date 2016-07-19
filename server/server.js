@@ -3,6 +3,8 @@ var express = require('express');
 var Sequelize = require('sequelize');
 var pg = require('pg');
 
+var utils = require('../App/Utils/api.js');
+
 ////SET VARIABLES
 var port = 5050;
 
@@ -39,7 +41,8 @@ app.post('/users/create', function (req, res) {
 });
 
 app.get('/photos', function (req, res) {
-	res.send('bichez b getten pixx');
+	console.log('bichez b getten pixx');
+	utils.showImageOptions(res);
 });
 
 app.post('/photos', function (req, res) {

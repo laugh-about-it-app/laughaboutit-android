@@ -1,25 +1,19 @@
-<<<<<<< HEAD
+var schemas = require('../../server/schemas.js');
 export const api = {
-=======
-export let api = {
   getUserInfo (user) {
-    // function to get username, avatar
-    /* example:
-    username = username.toLowerCase().trim();
-    var url = `https://api.github.com/users/${username}`;
-    return fetch(url).then((res) => res.json())
-    */
 
   },
-  getDailyCaptions () {
+  getDailyCaptions (photo) {
     // function to get all images/captions for the day
     // includes: caption text, image URL, vote count, user who posted ?
   },
   postCaption (caption) {
     // function to post a user-created caption
   },
-  showImageOptions () {
-    // function to get images from DB to propose to user for caption
+  showImageOptions (res) {
+    schemas.Photo.findAll({}, function (results) {
+      res.send(results);
+    });
   },
   updateUserInfo (user) {
     // function to update user info from a settings page ( or elsewhere? )

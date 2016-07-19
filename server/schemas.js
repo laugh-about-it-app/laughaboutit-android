@@ -128,10 +128,12 @@ Hashtag.hasMany('photo');
 //*the key point of including these tables in addition to 
 //posicto-created Schema
 
-module.exports = User;
-module.exports = Photo;
-module.exports = Caption;
-module.exports = Hashtag;
+module.exports = {
+	User: User,
+	Photo: Photo,
+	Caption: Caption,
+	Hashtag: Hashtag
+}
 
 
 
