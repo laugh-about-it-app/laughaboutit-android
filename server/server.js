@@ -3,6 +3,8 @@ var express = require('express');
 var Sequelize = require('sequelize');
 var pg = require('pg');
 
+var utils = require('../App/Utils/api.js');
+
 ////SET VARIABLES
 var port = 5050;
 
@@ -22,27 +24,37 @@ app.use(express.static(__dirname + '/../dummy.html'));
 ////////////////////////
 var request = require('request');
 
-request.post('http://s3-us-west-2.amazonaws.com/labitapp', {form:{key:'value'}}, function (error, response, body){
-	if (!error && response.statusCode === 200) {
-		console.log(body);
-	//return our results to the client. 
-	}
-});
-/*
-when get req to /photos/all
 
-our server will redirect to s3bucket and
-return our results to the client. 
- http://s3-us-west-2.amazonaws.com/labitapp
 
- //authorization token? anonymous. 
-*/
 app.get('/', function (req, res) {
 	res.send('Heyyy bitchez');
 });
 
-app.get('/favicon.ico', function (req, res) {
-	res.sendStatus(200);
+//get & post ?? just post? 
+app.get('/users/signin', function (req, res) {
+	res.send('bichez b signing in');
+});
+
+//is this signup
+app.post('/users/create', function (req, res) {
+	res.send('bichez b signing in');
+});
+
+app.get('/photos', function (req, res) {
+	console.log('bichez b getten pixx');
+	utils.showImageOptions(res);
+});
+
+app.post('/photos', function (req, res) {
+	res.send('bichez b postin up');
+});
+
+app.get('/captions', function (req, res) {
+	res.send('bichez b getten the word');
+});
+
+app.post('/captions', function (req, res) {
+	res.send('bichez b postin up word');
 });
 // module.exports = {
 // 	dbUrl: dbUrl,
