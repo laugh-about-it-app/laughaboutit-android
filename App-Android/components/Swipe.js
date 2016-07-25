@@ -38,8 +38,8 @@ class Card extends Component {
 			<View style={styles.card}>
 				<Image style={styles.picture} source={{uri: this.props.url}}>
 				<View style={styles.backDropView}>
-					<Text style={fontStyleTop}>{this.props.caption_top} / {this.props.caption_top.length}</Text>
-					<Text style={fontStyleBottom}>{this.props.caption_bottom} / {this.props.caption_bottom.length}</Text>
+					<Text style={fontStyleTop}>{this.props.caption_top}</Text>
+					<Text style={fontStyleBottom}>{this.props.caption_bottom}</Text>
 				</View>
 				</Image>
 				<Text style={styles.text}>Likes: {this.props.likes}</Text>
@@ -132,7 +132,7 @@ class Swiper extends Component {
 				this.setState({
 					// Cards2 is a placeholder for now but should be a new set of data 
 					// retrieved from the database
-					cards: this.state.cards.concat(Cards2),
+					// cards: this.state.cards.concat(Cards2),
 					// If going to do another call to the database, out of cards should
 					// only be set to true if the call fails to produce new data. 
 					outOfCards: true

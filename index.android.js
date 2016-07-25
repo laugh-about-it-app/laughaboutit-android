@@ -18,6 +18,7 @@ import Intro from './App-Android/components/intro.js';
 import Home from './App-Android/components/home.js';
 import Signup from './App-Android/components/signup.js';
 import CreateCaption from './App-Android/components/caption.js';
+import LeaderBoard from './App-Android/components/leaderboards.js';
 import api from './App-Android/util/api.js';
 
 // Main purpose of this class is to act as a router/navigator for the app. 
@@ -81,6 +82,7 @@ class laughaboutit extends Component {
         return <Intro title={'Welcome'} navigator={navigator} onForward={onForward} toPage={toPage} imageData={this.state.imageData} {...route.passProps}/>
       }
       if (route.name === 'Home') {
+        this.getCaptions();
         return <Home title={'Home'} navigator={navigator} onForward={onForward} toPage={toPage} imageData={this.state.imageData} captions={this.state.dailyCaptions} {...route.passProps}/>
       }
       if (route.name === 'Signup') {
@@ -88,6 +90,10 @@ class laughaboutit extends Component {
       }
       if (route.name === 'Create') {
         return <CreateCaption title={'Create'} navigator={navigator} onForward={onForward} toPage={toPage} imageData={this.state.imageData} {...route.passProps}/>
+      }
+      if (route.name === 'TopRated') {
+        this.getCaptions();
+        return <LeaderBoard title={'topRated'} navigator={navigator} onForward={onForward} toPage={toPage} imageData={this.state.imageData} captions={this.state.dailyCaptions} {...route.passProps}/>
       }
     }
 
