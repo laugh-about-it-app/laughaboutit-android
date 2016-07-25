@@ -16,10 +16,9 @@ var styles = StyleSheet.create({
     height: 200
   },
   textInput: {
-    height: 30, 
+    height: 45, 
     borderColor: 'gray', 
-    borderWidth: 0.5,
-    backgroundColor: 'yellow',
+    borderWidth: 2,
     alignSelf: 'stretch',
     textAlign: 'center',
     fontSize: 20
@@ -47,8 +46,8 @@ class CreateCaption extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      topCaption: '',
-      bottomCaption: '',
+      topCaption: 'Text Here',
+      bottomCaption: 'Text Here',
       fontFamilyOptions: ['Karla', 'Karla-Italic', 'Karla-BoldItalic', 'Karla-Bold'],
       optionIndex: 0,
       bottomCaptionKey: 0,

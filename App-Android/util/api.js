@@ -56,11 +56,20 @@ let api = {
       callback(data);
     });
   },
+
   updateUserInfo (user) {
     // function to update user info from a settings page ( or elsewhere? )
   },
-  upVote (caption) {
+  upVote (captionId) {
     // function to upvote a particular caption
+    fetch('https://shielded-springs-75726.herokuapp.com/captions/upvote', {
+      method: 'PUT',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.Stringify(captionId)
+    }).then( () => { 
+      console.log('success on upVote');
   },
   // register user in our DB, used for later updating of user records.
   userSignUp (user) {

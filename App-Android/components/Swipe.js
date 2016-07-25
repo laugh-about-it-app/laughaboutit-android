@@ -6,6 +6,7 @@ import { StyleSheet,
 
 // This component is used to provide the swipe functionality. 
 import SwipeCards from '../util/SwipeCards.js';
+import api from '../util/api.js';
 
 // The card component houses each card and will be dynamically rendered upon each
 // new swipe to a new card. 
