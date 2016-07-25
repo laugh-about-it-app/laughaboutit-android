@@ -13,10 +13,12 @@ let api = {
   */
   
   // function to get all images/captions for the day
-  getDailyCaptions () {
-    fetch('https://shielded-springs-75726.herokuapp.com/captions').then( (data) => {
+  getDailyCaptions (callback) {
+    fetch('https://shielded-springs-75726.herokuapp.com/captions/giveusthisday').then( (data) => {
       console.log('success getDailyCaptions', data);
-      // do something with the data, display etc.
+      callback ? callback(JSON.parse(data._bodyText)) : null;
+    }).catch((err) => {
+      console.log('error');
     });
   },
   // function to post a user-created caption
@@ -68,8 +70,7 @@ let api = {
         "Content-Type": "application/json",
       },
       body: JSON.Stringify(captionId)
-    }).then( () => { 
-      console.log('success on upVote');
+    });
   },
   // register user in our DB, used for later updating of user records.
   userSignUp (user) {

@@ -7,7 +7,8 @@ import { Image,
        TouchableHighlight
        } from 'react-native';
 
-import Swiper from './Swipe.js'
+import Swiper from './Swipe.js';
+import api from '../util/api.js';
 
 class Home extends Component {
   constructor(props) {
@@ -19,8 +20,18 @@ class Home extends Component {
         uri: 'https://i.imgflip.com/md3m6.jpg', votes: 0
       }, {
           uri: 'http://legendsoflocalization.com/wp-content/uploads/2015/10/doge-2.jpg', votes: 0
-      }]
+      }],
+      imageData: this.props.imageData,
+      captions: this.props.captions
     }
+  }
+
+  getPicture() {
+    console.log('****** STARTING GET DAILY RAW IMAGE ******* ');
+    api.getDailyRawImage((data) => {
+      console.log('******* THIS IS THE DATA CALLBACK********', JSON.parse(data._bodyText));
+      this.setState({imageData: JSON.parse(data._bodyText)});
+    });
   }
   
   render() {
@@ -62,7 +73,7 @@ class Home extends Component {
     */
     return (
       <View style={styles.container}>
-        <Swiper style={{flex: 1}}/>
+        <Swiper style={{flex: 1}} imageData={this.state.imageData} captions={this.state.captions}/>
       </View>
     );
   }

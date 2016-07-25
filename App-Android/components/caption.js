@@ -52,9 +52,8 @@ class CreateCaption extends Component {
       optionIndex: 0,
       bottomCaptionKey: 0,
       topCaptionKey: 0,
-      imageData: {url: 'https://s3-us-west-1.amazonaws.com/labitapp/dog1.jpeg'}
+      imageData: this.props.imageData
     }
-    this.getPicture();
   }
   
   handleSubmit() {

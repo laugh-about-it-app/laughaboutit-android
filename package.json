@@ -10,6 +10,7 @@
     "deco-ride-share-demo": "^1.1.0",
     "react": "15.2.1",
     "react-native": "^0.29.1",
-    "react-native-swipe-cards": "0.0.7"
+    "react-native-swipe-cards": "0.0.7",
+    "react-native-swiper": "^1.4.7"
   }
 }

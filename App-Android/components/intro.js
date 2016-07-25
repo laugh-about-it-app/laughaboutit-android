@@ -20,11 +20,13 @@ class Intro extends Component {
   render() {
     const imagesArr = [
       'https://s-media-cache-ak0.pinimg.com/564x/23/04/a1/2304a18385e790a38b686de96196e305.jpg',
-      'http://images.nationalgeographic.com/wpf/media-live/photos/000/347/cache/golden-labrador-puppy_34708_990x742.jpg'
+      'http://images.nationalgeographic.com/wpf/media-live/photos/000/347/cache/golden-labrador-puppy_34708_990x742.jpg',
+      'https://www.greenfieldpuppies.com/wp-content/plugins/gfp/images/big/pup_x_1362172052_0.jpg'
     ];
     const messagesArr = [
-      "Placeholder Text: Puppies #1. Puppies are cute",
-      "Placeholder Text: Puppies #2. Puppies are nice"
+      "Welcome to Laugh About It, a social app to share comedic captions from your mind to the world!",
+      "Using the app is simple, just swipe right for captions you like, and swipe left for captions you don't care for.",
+      "Signing up is easy, do it today!"
     ];
 
     return (
@@ -37,11 +39,12 @@ class Intro extends Component {
         resizeMode={"contain"}
         source={{uri: imagesArr[this.state.imageIdx]}}>
       <View style={style.backDropView}>
-        <Text style={style.headline}>This is a test headline. The more I type the more it just goes on and on... </Text>
+        <Text style={style.headline}></Text>
       </View></Image>
       <Text style={style.body}> {messagesArr[this.state.messageIdx]} </Text>
       <TouchableHighlight onPress={() => {
-        this.props.toPage('Create');
+        this.setState({messageIdx: this.state.messageIdx > 1 ? 0 : this.state.messageIdx + 1});
+        this.setState({imageIdx: this.state.imageIdx > 1 ? 0 : this.state.imageIdx + 1})
       }}>
         <Text style={style.body}> Next </Text>
       </TouchableHighlight>
@@ -75,7 +78,8 @@ const style = StyleSheet.create({
     textAlign: 'center'
   },
   body: {
-    fontSize: 10
+    fontSize: 12,
+    padding: 10
   },
   backDropView: {
     height: 120,

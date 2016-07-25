@@ -13,8 +13,8 @@ import api from '../util/api.js';
 class Card extends Component {
 	render() {
 		// Change font size based on the size of the caption: 
-		var captionSize = this.props.caption.length;
-		var fontSize = 24 - (this.props.caption.length / 8);
+		var captionSize = this.props.caption_top.length;
+		var fontSize = 24 - (this.props.caption_top.length / 8);
 		var fontStyle =  {
 		    fontSize: fontSize,
 		    textAlign: 'center',
@@ -26,9 +26,9 @@ class Card extends Component {
 		return (
 			<View style={styles.card}>
 				<Image style={styles.picture} source={{uri: this.props.url}}>
-				<View style={styles.backDropView}><Text style={fontStyle}>{this.props.caption} / {this.props.caption.length}</Text></View>
+				<View style={styles.backDropView}><Text style={fontStyle}>{this.props.caption_top} / {this.props.caption_top.length}</Text></View>
 				</Image>
-				<Text style={styles.text}>{this.props.name}</Text>
+				<Text style={styles.text}>{this.props.id}</Text>
 			</View>
 		)
 	}
@@ -48,36 +48,46 @@ class NoMoreCards extends Component {
 
 // Placeholder for cards. To be gotten from the database instead. 
 const Cards = [
-  {name: '1', url: 'http://4.bp.blogspot.com/-RHgiCuHVKNM/UBFN0nrdMPI/AAAAAAAACKU/uU1xiB6kV74/s1600/Really-Cute-Yellow-Labrador-Puppy.jpg',
-  caption: 'Can I has out of this box?'},
-  {name: '2', url: 'http://4.bp.blogspot.com/-RHgiCuHVKNM/UBFN0nrdMPI/AAAAAAAACKU/uU1xiB6kV74/s1600/Really-Cute-Yellow-Labrador-Puppy.jpg',
-	caption: 'This was only cute for the first few seconds...'},
-  {name: '3', url: 'http://4.bp.blogspot.com/-RHgiCuHVKNM/UBFN0nrdMPI/AAAAAAAACKU/uU1xiB6kV74/s1600/Really-Cute-Yellow-Labrador-Puppy.jpg',
-	caption: 'Halp pls... halp.... Hooman pls.... haaaaalp.... This is my life now isnt it?'},
-  {name: '4', url: 'http://4.bp.blogspot.com/-RHgiCuHVKNM/UBFN0nrdMPI/AAAAAAAACKU/uU1xiB6kV74/s1600/Really-Cute-Yellow-Labrador-Puppy.jpg',
-	caption: 'Imma paw my way outta here.'},
-  {name: '5', url: 'http://memesvault.com/wp-content/uploads/Doge-Meme-05.png', caption: ''}
+  {id: '1', url: 'http://4.bp.blogspot.com/-RHgiCuHVKNM/UBFN0nrdMPI/AAAAAAAACKU/uU1xiB6kV74/s1600/Really-Cute-Yellow-Labrador-Puppy.jpg',
+  caption_top: 'Can I has out of this box?'},
+  {id: '2', url: 'http://4.bp.blogspot.com/-RHgiCuHVKNM/UBFN0nrdMPI/AAAAAAAACKU/uU1xiB6kV74/s1600/Really-Cute-Yellow-Labrador-Puppy.jpg',
+	caption_top: 'This was only cute for the first few seconds...'},
+  {id: '3', url: 'http://4.bp.blogspot.com/-RHgiCuHVKNM/UBFN0nrdMPI/AAAAAAAACKU/uU1xiB6kV74/s1600/Really-Cute-Yellow-Labrador-Puppy.jpg',
+	caption_top: 'Halp pls... halp.... Hooman pls.... haaaaalp.... This is my life now isnt it?'},
+  {id: '4', url: 'http://4.bp.blogspot.com/-RHgiCuHVKNM/UBFN0nrdMPI/AAAAAAAACKU/uU1xiB6kV74/s1600/Really-Cute-Yellow-Labrador-Puppy.jpg',
+	caption_top: 'Imma paw my way outta here.'},
+  {id: '5', url: 'http://memesvault.com/wp-content/uploads/Doge-Meme-05.png', caption_top: ''}
 ];
 
 const Cards2 = [
-  {name: '6', url: 'https://s-media-cache-ak0.pinimg.com/736x/b0/02/a7/b002a71dcf90fcd1fc5e8711acecb6da.jpg',
-	caption: 'Extra text'},
-  {name: '7', url: 'https://i.ytimg.com/vi/LaJLjtPqJ0Q/maxresdefault.jpg',
-	caption: 'Continuing to test this text'},
-  {name: '8', url: 'http://static8.depositphotos.com/1003131/1021/i/950/depositphotos_10214337-Yellow-lab-puppy-in-the.jpg',
-	caption: 'Even more testing of the text'},
-  {name: '9', url: 'http://www.ktlabradors.com/Angel/Dec_10_litter/Purple%20collar_lucy%20jane%20home6a.jpg',
-	caption: 'Some more testing of my text'}
+  {id: '6', url: 'https://s-media-cache-ak0.pinimg.com/736x/b0/02/a7/b002a71dcf90fcd1fc5e8711acecb6da.jpg',
+	caption_top: 'Extra text'},
+  {id: '7', url: 'https://i.ytimg.com/vi/LaJLjtPqJ0Q/maxresdefault.jpg',
+	caption_top: 'Continuing to test this text'},
+  {id: '8', url: 'http://static8.depositphotos.com/1003131/1021/i/950/depositphotos_10214337-Yellow-lab-puppy-in-the.jpg',
+	caption_top: 'Even more testing of the text'},
+  {id: '9', url: 'http://www.ktlabradors.com/Angel/Dec_10_litter/Purple%20collar_lucy%20jane%20home6a.jpg',
+	caption_top: 'Some more testing of my text'}
 ];
 
 // Main class to hold the cards. 
 class Swiper extends Component {
 	constructor(props) {
 		super(props);
+		console.log('props captions in swiper *****************', this.props.captions);
 		this.state = {
-			cards: Cards,
-			outOfCards: false
+			cards: this.props.captions.map((caption) => {
+				caption.url = this.props.imageData.url;
+				return caption;
+			}),
+			outOfCards: false,
+			imageData: this.props.imageData,
+			captions: this.props.dailyCaptions
 		}
+		this.getCaptions();
+	}
+
+	getCaptions() {
 	}
 
 	// TODO: his should eventually store the fact that the user upvoted a picture/caption to
