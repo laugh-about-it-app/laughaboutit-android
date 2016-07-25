@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { StyleSheet, 
 	Text, 
 	View, 
-	Image } from 'react-native';
+	Image,
+	TouchableHighlight } from 'react-native';
 
 // This component is used to provide the swipe functionality. 
 import SwipeCards from '../util/SwipeCards.js';
@@ -43,7 +44,6 @@ class Card extends Component {
 				</Image>
 				<Text style={styles.text}>Likes: {this.props.likes}</Text>
 				<Text style={styles.text}>Dislikes: {this.props.dislikes}</Text>
-
 			</View>
 		)
 	}
@@ -143,6 +143,7 @@ class Swiper extends Component {
 
 	render() {
 		return (
+			<View>
 			<SwipeCards
 			  cards={this.state.cards}
 			  loop={false}
@@ -156,6 +157,13 @@ class Swiper extends Component {
 			  handleNope={this.handleNope}
 			  cardRemoved={this.cardRemoved.bind(this)}
 			/>
+			<Text style={styles.createOwn}>Enjoy the Captions?</Text>
+			<TouchableHighlight onPress={() => {
+				this.props.toPage('Create');
+			}}>
+				<Text style={styles.createOwn}>Click HERE to Make Your Own!</Text>
+			</TouchableHighlight>
+			</View>
 		);
 	}
 
@@ -182,6 +190,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
     paddingTop: 10,
     paddingBottom: 10
+  },
+  createOwn: {
+  	fontSize: 12,
+  	alignSelf: 'center',
+  	textAlign: 'center'
   },
   noMoreCards: {
     flex: 1,

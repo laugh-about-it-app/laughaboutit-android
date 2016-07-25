@@ -33,9 +33,13 @@ let api = {
   },
   // function to post a user-created caption
   postCaption (caption) {
-    fetch('https://shielded-springs-75726.herokuapp.com/captions', { 
+    console.log('**** CAPTION IN POST CAPTION ****', caption);
+    fetch('https://shielded-springs-75726.herokuapp.com/captions/giveusthisday', { 
       method: 'POST',
-      body: JSON.stringify(caption) // review.
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(caption), 
     }).then( (data) => { 
       console.log('success postCaption', data); 
     }).catch( (err) => { 

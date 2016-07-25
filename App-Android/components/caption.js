@@ -58,11 +58,13 @@ class CreateCaption extends Component {
   
   handleSubmit() {
     var caption = {
-      bottomCaption: this.state.bottomCaption,
-      topCaption: this.state.topCaption,
-      user: '' // passed down from props? username, id and avatar? 
+      userId: 17,
+      photoId: 1,
+      caption_top: this.state.topCaption,
+      caption_bottom: this.state.bottomCaption
     };
     api.postCaption(caption);
+    this.props.toPage('Home');
   }
 
   getPicture() {

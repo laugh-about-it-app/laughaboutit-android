@@ -73,7 +73,7 @@ class Home extends Component {
     */
     return (
       <View style={styles.container}>
-        <Swiper style={{flex: 1}} imageData={this.state.imageData} captions={this.state.captions}/>
+        <Swiper style={{flex: 1}} imageData={this.state.imageData} captions={this.state.captions} toPage={this.props.toPage}/>
       </View>
     );
   }
