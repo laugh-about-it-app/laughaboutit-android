@@ -15,20 +15,35 @@ class Card extends Component {
 		// Change font size based on the size of the caption: 
 		var captionSize = this.props.caption_top.length;
 		var fontSize = 24 - (this.props.caption_top.length / 8);
-		var fontStyle =  {
+		var fontStyleTop = {
 		    fontSize: fontSize,
 		    textAlign: 'center',
 		    backgroundColor: 'rgba(0,0,0,0)',
 		    color: 'white',
 		    width: 225,
-		    alignSelf: 'center'
+		    alignSelf: 'center',
+		    top: 10
+		}
+		var fontStyleBottom = {
+		    fontSize: fontSize,
+		    textAlign: 'center',
+		    backgroundColor: 'rgba(0,0,0,0)',
+		    color: 'white',
+		    width: 225,
+		    alignSelf: 'center',
+		    bottom: 10
 		}
 		return (
 			<View style={styles.card}>
 				<Image style={styles.picture} source={{uri: this.props.url}}>
-				<View style={styles.backDropView}><Text style={fontStyle}>{this.props.caption_top} / {this.props.caption_top.length}</Text></View>
+				<View style={styles.backDropView}>
+					<Text style={fontStyleTop}>{this.props.caption_top} / {this.props.caption_top.length}</Text>
+					<Text style={fontStyleBottom}>{this.props.caption_bottom} / {this.props.caption_bottom.length}</Text>
+				</View>
 				</Image>
-				<Text style={styles.text}>{this.props.id}</Text>
+				<Text style={styles.text}>Likes: {this.props.likes}</Text>
+				<Text style={styles.text}>Dislikes: {this.props.dislikes}</Text>
+
 			</View>
 		)
 	}
@@ -93,12 +108,14 @@ class Swiper extends Component {
 	// TODO: his should eventually store the fact that the user upvoted a picture/caption to
 	// the database.
 	handleUpvote(card) {
-		console.log('Card is upvoted');
+		console.log('Card is upvoted*********', card);
+		api.upVote(card.id);
 	}
 
 	// Handle Nope should remain relatively without effect as a downvote system is not necessary
 	handleNope(card) {
 		console.log('Card was skipped');
+		api.downVote(card.id);
 	}
 
 	// This function is called everytime a card is removed and can possibly act as a trigger for
@@ -179,7 +196,8 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     alignItems: 'flex-start',
     flex: 1,
-    flexDirection: 'column'
+    flexDirection: 'column',
+    justifyContent: 'space-between'
   },
   headline: {
     fontSize: 20,

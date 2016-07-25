@@ -11,6 +11,16 @@ let api = {
     }
     
   */
+  downVote (captionId) {
+    // function to upvote a particular caption
+    fetch('https://shielded-springs-75726.herokuapp.com/captions/downvote', {
+      method: 'PUT',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({captionId: captionId})
+    });
+  },
   
   // function to get all images/captions for the day
   getDailyCaptions (callback) {
@@ -69,7 +79,7 @@ let api = {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.Stringify(captionId)
+      body: JSON.stringify({captionId: captionId})
     });
   },
   // register user in our DB, used for later updating of user records.

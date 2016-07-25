@@ -7,6 +7,46 @@ import { Image,
        TouchableHighlight
        } from 'react-native';
 
+import Swiper from 'react-native-swiper';
+
+// Swiper is a useful swipe animation, but requires views to be hardcoded instead of accessed 
+// dynamically
+class MySwipe extends Component {
+  render() {
+    return (
+      <Swiper style={style.container} showsButtons={true}>
+        <View style={style.slide1}>
+          <Image style={style.image} resizeMode={'contain'} source={{uri: this.props.imagesArr[0]}}/>
+          <Text style={style.text}>{this.props.messagesArr[0]}</Text>
+          <TouchableHighlight onPress={() => {
+            this.props.toPage('Home');
+          }}>
+            <Text> Sign Up! </Text>
+          </TouchableHighlight> 
+        </View>
+        <View style={style.slide2}>
+          <Image style={style.image} resizeMode={'contain'} source={{uri: this.props.imagesArr[1]}}/>
+          <Text style={style.text}>{this.props.messagesArr[1]}</Text>
+          <TouchableHighlight onPress={() => {
+            this.props.toPage('Home');
+          }}>
+            <Text> Sign Up! </Text>
+          </TouchableHighlight>
+        </View>
+        <View style={style.slide3}>
+          <Image style={style.image} resizeMode={'contain'} source={{uri: this.props.imagesArr[2]}}/>
+          <Text style={style.text}>{this.props.messagesArr[2]}</Text>
+          <TouchableHighlight onPress={() => {
+            this.props.toPage('Home');
+          }}>
+            <Text> Sign Up! </Text>
+          </TouchableHighlight>
+        </View>
+      </Swiper>
+    );
+  }
+}
+
 class Intro extends Component {
   
   constructor(props) {
@@ -31,30 +71,36 @@ class Intro extends Component {
 
     return (
       <View style={style.container}>
-      <Text style={style.header}>
-        Welcome!
-      </Text>
-      <Image 
-        style={style.image}
-        resizeMode={"contain"}
-        source={{uri: imagesArr[this.state.imageIdx]}}>
-      <View style={style.backDropView}>
-        <Text style={style.headline}></Text>
-      </View></Image>
-      <Text style={style.body}> {messagesArr[this.state.messageIdx]} </Text>
-      <TouchableHighlight onPress={() => {
-        this.setState({messageIdx: this.state.messageIdx > 1 ? 0 : this.state.messageIdx + 1});
-        this.setState({imageIdx: this.state.imageIdx > 1 ? 0 : this.state.imageIdx + 1})
-      }}>
-        <Text style={style.body}> Next </Text>
-      </TouchableHighlight>
-      <TouchableHighlight onPress={() => {
-        this.props.toPage('Home');
-      }}>
-        <Text> Sign Up! </Text>
-      </TouchableHighlight> 
+        <MySwipe imagesArr={imagesArr} messagesArr={messagesArr} toPage={this.props.toPage}/>
       </View>
     );
+
+    // return (
+    //   <View style={style.container}>
+    //   <Text style={style.header}>
+    //     Welcome!
+    //   </Text>
+    //   <Image 
+    //     style={style.image}
+    //     resizeMode={"contain"}
+    //     source={{uri: imagesArr[this.state.imageIdx]}}>
+    //   <View style={style.backDropView}>
+    //     <Text style={style.headline}></Text>
+    //   </View></Image>
+    //   <Text style={style.body}> {messagesArr[this.state.messageIdx]} </Text>
+    //   <TouchableHighlight onPress={() => {
+    //     this.setState({messageIdx: this.state.messageIdx > 1 ? 0 : this.state.messageIdx + 1});
+    //     this.setState({imageIdx: this.state.imageIdx > 1 ? 0 : this.state.imageIdx + 1})
+    //   }}>
+    //     <Text style={style.body}> Next </Text>
+    //   </TouchableHighlight>
+    //   <TouchableHighlight onPress={() => {
+    //     this.props.toPage('Home');
+    //   }}>
+    //     <Text> Sign Up! </Text>
+    //   </TouchableHighlight> 
+    //   </View>
+    // );
   }
 }
 
@@ -98,6 +144,32 @@ const style = StyleSheet.create({
     color: 'white',
     width: 225,
     alignSelf: 'center'
+  },
+  wrapper: {
+  },
+  slide1: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#9DD6EB',
+  },
+  slide2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#97CAE5',
+  },
+  slide3: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#92BBD9',
+  },
+  text: {
+    color: '#fff',
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center'
   }
 });
 
