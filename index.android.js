@@ -17,6 +17,7 @@ import {
 import Intro from './App-Android/components/intro.js';
 import Home from './App-Android/components/home.js';
 import Signup from './App-Android/components/signup.js';
+import CreateCaption from './App-Android/components/caption.js';
 
 // Main purpose of this class is to act as a router/navigator for the app. 
 class laughaboutit extends Component {
@@ -56,9 +57,11 @@ class laughaboutit extends Component {
       if (route.name === 'Home') {
         return <Home title={'Home'} navigator={navigator} onForward={onForward} toPage={toPage} {...route.passProps}/>
       }
-
       if (route.name === 'Signup') {
         return <Signup title={'Signup'} navigator={navigator} onForward={onForward} toPage={toPage} {...route.passProps}/>
+      }
+      if (route.name === 'Create') {
+        return <CreateCaption title={'Create'} navigator={navigator} onForward={onForward} toPage={toPage} {...route.passProps}/>
       }
     }
 

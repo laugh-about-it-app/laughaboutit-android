@@ -11,10 +11,22 @@ import SwipeCards from '../util/SwipeCards.js';
 // new swipe to a new card. 
 class Card extends Component {
 	render() {
-		console.log('THIS PROPS FOR CARDS ****** ', this.props);
+		// Change font size based on the size of the caption: 
+		var captionSize = this.props.caption.length;
+		var fontSize = 24 - (this.props.caption.length / 8);
+		var fontStyle =  {
+		    fontSize: fontSize,
+		    textAlign: 'center',
+		    backgroundColor: 'rgba(0,0,0,0)',
+		    color: 'white',
+		    width: 225,
+		    alignSelf: 'center'
+		}
 		return (
 			<View style={styles.card}>
-				<Image style={styles.picture} source={{uri: this.props.url}}></Image>
+				<Image style={styles.picture} source={{uri: this.props.url}}>
+				<View style={styles.backDropView}><Text style={fontStyle}>{this.props.caption} / {this.props.caption.length}</Text></View>
+				</Image>
 				<Text style={styles.text}>{this.props.name}</Text>
 			</View>
 		)
@@ -35,18 +47,26 @@ class NoMoreCards extends Component {
 
 // Placeholder for cards. To be gotten from the database instead. 
 const Cards = [
-  {name: '1', url: 'http://4.bp.blogspot.com/-RHgiCuHVKNM/UBFN0nrdMPI/AAAAAAAACKU/uU1xiB6kV74/s1600/Really-Cute-Yellow-Labrador-Puppy.jpg'},
-  {name: '2', url: 'http://memesvault.com/wp-content/uploads/Doge-Meme-05.png'},
-  {name: '3', url: 'https://i.imgflip.com/md3m6.jpg'},
-  {name: '4', url: 'http://legendsoflocalization.com/wp-content/uploads/2015/10/doge-2.jpg'},
-  {name: '5', url: 'https://media.giphy.com/media/oDLDbBgf0dkis/giphy.gif'}
+  {name: '1', url: 'http://4.bp.blogspot.com/-RHgiCuHVKNM/UBFN0nrdMPI/AAAAAAAACKU/uU1xiB6kV74/s1600/Really-Cute-Yellow-Labrador-Puppy.jpg',
+  caption: 'Can I has out of this box?'},
+  {name: '2', url: 'http://4.bp.blogspot.com/-RHgiCuHVKNM/UBFN0nrdMPI/AAAAAAAACKU/uU1xiB6kV74/s1600/Really-Cute-Yellow-Labrador-Puppy.jpg',
+	caption: 'This was only cute for the first few seconds...'},
+  {name: '3', url: 'http://4.bp.blogspot.com/-RHgiCuHVKNM/UBFN0nrdMPI/AAAAAAAACKU/uU1xiB6kV74/s1600/Really-Cute-Yellow-Labrador-Puppy.jpg',
+	caption: 'Halp pls... halp.... Hooman pls.... haaaaalp.... This is my life now isnt it?'},
+  {name: '4', url: 'http://4.bp.blogspot.com/-RHgiCuHVKNM/UBFN0nrdMPI/AAAAAAAACKU/uU1xiB6kV74/s1600/Really-Cute-Yellow-Labrador-Puppy.jpg',
+	caption: 'Imma paw my way outta here.'},
+  {name: '5', url: 'http://memesvault.com/wp-content/uploads/Doge-Meme-05.png', caption: ''}
 ];
 
 const Cards2 = [
-  {name: '6', url: 'https://s-media-cache-ak0.pinimg.com/736x/b0/02/a7/b002a71dcf90fcd1fc5e8711acecb6da.jpg'},
-  {name: '7', url: 'https://i.ytimg.com/vi/LaJLjtPqJ0Q/maxresdefault.jpg'},
-  {name: '8', url: 'http://static8.depositphotos.com/1003131/1021/i/950/depositphotos_10214337-Yellow-lab-puppy-in-the.jpg'},
-  {name: '9', url: 'http://www.ktlabradors.com/Angel/Dec_10_litter/Purple%20collar_lucy%20jane%20home6a.jpg'}
+  {name: '6', url: 'https://s-media-cache-ak0.pinimg.com/736x/b0/02/a7/b002a71dcf90fcd1fc5e8711acecb6da.jpg',
+	caption: 'Extra text'},
+  {name: '7', url: 'https://i.ytimg.com/vi/LaJLjtPqJ0Q/maxresdefault.jpg',
+	caption: 'Continuing to test this text'},
+  {name: '8', url: 'http://static8.depositphotos.com/1003131/1021/i/950/depositphotos_10214337-Yellow-lab-puppy-in-the.jpg',
+	caption: 'Even more testing of the text'},
+  {name: '9', url: 'http://www.ktlabradors.com/Angel/Dec_10_litter/Purple%20collar_lucy%20jane%20home6a.jpg',
+	caption: 'Some more testing of my text'}
 ];
 
 // Main class to hold the cards. 
@@ -139,6 +159,24 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  backDropView: {
+    height: 120,
+    width: 360,
+    backgroundColor: 'rgba(0,0,0,0)',
+    alignSelf: 'center',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start',
+    flex: 1,
+    flexDirection: 'column'
+  },
+  headline: {
+    fontSize: 20,
+    textAlign: 'center',
+    backgroundColor: 'rgba(0,0,0,0)',
+    color: 'white',
+    width: 225,
+    alignSelf: 'center'
   }
 })
 

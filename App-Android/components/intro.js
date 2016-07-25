@@ -32,24 +32,21 @@ class Intro extends Component {
       <Text style={style.header}>
         Welcome!
       </Text>
-      <TouchableHighlight onPress={() => {
-        this.setState({'imageIdx': this.state.imageIdx === 0 ? 1 : 0});
-        this.setState({'messageIdx': this.state.messageIdx === 0 ? 1 : 0});
-      }}>
       <Image 
         style={style.image}
         resizeMode={"contain"}
-        source={{uri: imagesArr[this.state.imageIdx]}}
-      />
-      </TouchableHighlight>
+        source={{uri: imagesArr[this.state.imageIdx]}}>
+      <View style={style.backDropView}>
+        <Text style={style.headline}>This is a test headline. The more I type the more it just goes on and on... </Text>
+      </View></Image>
       <Text style={style.body}> {messagesArr[this.state.messageIdx]} </Text>
       <TouchableHighlight onPress={() => {
-        this.props.toPage('Home');
+        this.props.toPage('Create');
       }}>
         <Text style={style.body}> Next </Text>
       </TouchableHighlight>
       <TouchableHighlight onPress={() => {
-        this.props.toPage('Signup');
+        this.props.toPage('Home');
       }}>
         <Text> Sign Up! </Text>
       </TouchableHighlight> 
@@ -58,17 +55,20 @@ class Intro extends Component {
   }
 }
 
+// Addition of paddingTop to image and backDropView style in order to test text overlay. 
 const style = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#eedd82'
+    backgroundColor: '#eedd82',
+    flexWrap: 'wrap'
   },
   image: {
     alignSelf: 'center',
     width: 400,
-    height: 300
+    height: 300,
+    paddingTop: 10,
   },
   header: {
     fontSize: 20,
@@ -76,6 +76,24 @@ const style = StyleSheet.create({
   },
   body: {
     fontSize: 10
+  },
+  backDropView: {
+    height: 120,
+    width: 360,
+    backgroundColor: 'rgba(0,0,0,0)',
+    alignSelf: 'center',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start',
+    flex: 1,
+    flexDirection: 'column'
+  },
+  headline: {
+    fontSize: 20,
+    textAlign: 'center',
+    backgroundColor: 'rgba(0,0,0,0)',
+    color: 'white',
+    width: 225,
+    alignSelf: 'center'
   }
 });
 
