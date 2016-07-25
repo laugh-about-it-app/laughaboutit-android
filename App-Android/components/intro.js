@@ -9,6 +9,8 @@ import { Image,
 
 import Swiper from 'react-native-swiper';
 
+/* **************************** HELPER COMPONENT ******************************** */
+
 // Swiper is a useful swipe animation, but requires views to be hardcoded instead of accessed 
 // dynamically
 class MySwipe extends Component {
@@ -47,6 +49,8 @@ class MySwipe extends Component {
   }
 }
 
+/* **************************** MAIN INTRO COMPONENT ******************************** */
+
 class Intro extends Component {
   
   constructor(props) {
@@ -74,35 +78,10 @@ class Intro extends Component {
         <MySwipe imagesArr={imagesArr} messagesArr={messagesArr} toPage={this.props.toPage}/>
       </View>
     );
-
-    // return (
-    //   <View style={style.container}>
-    //   <Text style={style.header}>
-    //     Welcome!
-    //   </Text>
-    //   <Image 
-    //     style={style.image}
-    //     resizeMode={"contain"}
-    //     source={{uri: imagesArr[this.state.imageIdx]}}>
-    //   <View style={style.backDropView}>
-    //     <Text style={style.headline}></Text>
-    //   </View></Image>
-    //   <Text style={style.body}> {messagesArr[this.state.messageIdx]} </Text>
-    //   <TouchableHighlight onPress={() => {
-    //     this.setState({messageIdx: this.state.messageIdx > 1 ? 0 : this.state.messageIdx + 1});
-    //     this.setState({imageIdx: this.state.imageIdx > 1 ? 0 : this.state.imageIdx + 1})
-    //   }}>
-    //     <Text style={style.body}> Next </Text>
-    //   </TouchableHighlight>
-    //   <TouchableHighlight onPress={() => {
-    //     this.props.toPage('Home');
-    //   }}>
-    //     <Text> Sign Up! </Text>
-    //   </TouchableHighlight> 
-    //   </View>
-    // );
   }
 }
+
+/* **************************** HELPER DATA VARIABLES ******************************** */
 
 // Addition of paddingTop to image and backDropView style in order to test text overlay. 
 const style = StyleSheet.create({

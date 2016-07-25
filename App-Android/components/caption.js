@@ -2,45 +2,7 @@ import React, { Component, } from 'react';
 import { View, StyleSheet, Navigator, Text, Image, TextInput, TouchableHighlight} from 'react-native';
 import api from './../util/api'
 
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center', // 'space-around' is nicer? but then textinputs are too low.
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
-  },
-  image: {
-    paddingTop: 10, // change?
-    width: 300,
-    height: 200
-  },
-  textInput: {
-    height: 45, 
-    borderColor: 'gray', 
-    borderWidth: 2,
-    alignSelf: 'stretch',
-    textAlign: 'center',
-    fontSize: 20
-  },
-  topAlign: {
-    position: 'absolute',
-    top: 10,
-  },
-  bottomAlign: {
-    position: 'absolute',
-    bottom: 10,
-  },
-  buttonText: {
-    fontSize: 20 
-  },
-  button: {
-    marginBottom: 7,
-    backgroundColor: 'white',
-    borderColor: 'blue', 
-    borderWidth: 1
-  }
-});
+/* **************************** MAIN CREATE CAPTION COMPONENT ******************************** */
 
 class CreateCaption extends Component {
   constructor(props) {
@@ -135,5 +97,47 @@ class CreateCaption extends Component {
     )
   }
 }
+
+/* **************************** HELPER DATA AND VARIABLES ******************************** */
+
+var styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center', // 'space-around' is nicer? but then textinputs are too low.
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF'
+  },
+  image: {
+    paddingTop: 10, // change?
+    width: 300,
+    height: 200
+  },
+  textInput: {
+    height: 45, 
+    borderColor: 'gray', 
+    borderWidth: 2,
+    alignSelf: 'stretch',
+    textAlign: 'center',
+    fontSize: 20
+  },
+  topAlign: {
+    position: 'absolute',
+    top: 10,
+  },
+  bottomAlign: {
+    position: 'absolute',
+    bottom: 10,
+  },
+  buttonText: {
+    fontSize: 20 
+  },
+  button: {
+    marginBottom: 7,
+    backgroundColor: 'white',
+    borderColor: 'blue', 
+    borderWidth: 1
+  }
+});
 
 export default CreateCaption

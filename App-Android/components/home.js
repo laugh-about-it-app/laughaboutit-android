@@ -10,6 +10,8 @@ import { Image,
 import Swiper from './Swipe.js';
 import api from '../util/api.js';
 
+/* **************************** MAIN HOME COMPONENT ******************************** */
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -35,42 +37,6 @@ class Home extends Component {
   }
   
   render() {
-    /*
-    var picture = this.state.picturePH[this.state.currentPic];
-    return (
-      <View style={styles.container}>
-      <Image 
-        style={{
-          width: 300,
-          height: 200,
-        }}
-        resizeMode={"contain"}
-        source={{uri: picture.uri}}
-      />
-      <Text style={styles.instructions}> Placeholder Text: More Puppies </Text>
-      <Text style={styles.instructions}> Votes: {picture.votes} </Text>
-      <View style={styles.buttonContainer}>
-        <TouchableHighlight onPress={() => {
-          picture.votes++;
-          this.setState(picture);
-          this.setState({currentPic: this.state.currentPic === 2 ? 0 : this.state.currentPic + 1});
-        }}>
-          <Text style={styles.instructions}> Upvote </Text>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={() => {
-          this.setState({currentPic: this.state.currentPic === 2 ? 0 : this.state.currentPic + 1});
-        }}>
-          <Text style={styles.instructions}> Dislike </Text>
-        </TouchableHighlight>
-      </View>
-      <TouchableHighlight onPress={() => {
-        this.props.toPage('Intro');
-      }}>
-        <Text style={styles.instructions}> Next </Text>
-      </TouchableHighlight> 
-      </View>
-    );
-    */
     return (
       <View style={styles.container}>
         <Swiper style={{flex: 1}} imageData={this.state.imageData} captions={this.state.captions} toPage={this.props.toPage}/>
@@ -78,6 +44,8 @@ class Home extends Component {
     );
   }
 }
+
+/* **************************** HELPER DATA AND VARIABLES ******************************** */
 
 const styles = StyleSheet.create({
   container: {
