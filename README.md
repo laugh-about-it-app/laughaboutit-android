@@ -16,7 +16,7 @@ Laugh About It is a social captioning app available for both Android and iOS whe
 - Note: We deploy our server / landing page separate from the ReactNative code.
 - Within our server code, add shielded-springs-75726 (or whatever app you are designating as your staging environment) as a git remote repository. Whenever you make changes, add and commit them, then push to the remote. 
 - To view your Postgres db in Postico, read [Heroku's guide to connecting their Heroku Postgres Databases outside of Heroku](https://devcenter.heroku.com/articles/connecting-to-heroku-postgres-databases-from-outside-of-heroku)
-Set up Heroku [Postgres DB](https://postgres.heroku.com/). Retrieve the db url from ConnectionSettings to sync the db with your code and connection. Retrieve all db info to connect your db/ heroku db with your Postico schema.
+- Set up Heroku [Postgres DB](https://postgres.heroku.com/). Retrieve the db url from ConnectionSettings to sync the db with your code and connection. Retrieve all db info to connect your db/ heroku db with your Postico schema.
 
 ### Backend
 Client can communicate with the endpoints listed below for information on users, captions, photos, and hashtags.
