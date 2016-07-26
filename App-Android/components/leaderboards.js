@@ -12,7 +12,17 @@ import {
 // Each item in the leaderboard is wrapped in a BoardEntry component:
 class BoardEntry extends Component {
 	render() {
-
+		return (
+			<View>
+				<Image style={styles.picture} source={{uri: this.props.url}}>
+				<View style={styles.backDropView}>
+					<Text style={fontStyleTop}>{this.props.caption_top}</Text>
+					<Text style={fontStyleBottom}>{this.props.caption_bottom}</Text>
+				</View>
+				</Image>
+				<Text style={styles.text}>Likes: {this.props.likes}</Text>
+			</View>
+		);
 	}
 }
 
@@ -29,6 +39,14 @@ class LeaderBoard extends Component {
 
 	render() {
 		var _scrollView: ScrollView;
+		var images = this.state.captions.map((caption) => {
+			caption.url = this.state.imageData.url;
+			return caption;
+		}).sort((a, b) => {
+			return b.likes - a.likes;
+		});
+		console.log(images);
+		var topRated = [];
 		return (
 			<View>
 				<ScrollView
@@ -39,7 +57,9 @@ class LeaderBoard extends Component {
 						console.log('scrolling detected...');
 					}}
 					style={styles.scrollView}
-				></ScrollView>
+				>
+					<Text>Hi</Text>
+				</ScrollView>
 			</View>
 		);
 	}

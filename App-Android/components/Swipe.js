@@ -43,7 +43,6 @@ class Card extends Component {
 				</View>
 				</Image>
 				<Text style={styles.text}>Likes: {this.props.likes}</Text>
-				<Text style={styles.text}>Dislikes: {this.props.dislikes}</Text>
 			</View>
 		)
 	}
@@ -162,6 +161,12 @@ class Swiper extends Component {
 				this.props.toPage('Create');
 			}}>
 				<Text style={styles.createOwn}>Click HERE to Make Your Own!</Text>
+			</TouchableHighlight>
+			<Text style={styles.createOwn}>or</Text>
+			<TouchableHighlight onPress={() => {
+				this.props.toPage('TopRated');
+			}}>
+				<Text style={styles.createOwn}>See The Best of the Best</Text>
 			</TouchableHighlight>
 			</View>
 		);
