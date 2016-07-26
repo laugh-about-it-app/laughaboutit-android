@@ -3,7 +3,6 @@ Laugh About It is a social captioning app available for both Android and iOS whe
 
 ### Table of Contents:
   - Setting up Android environment
-  - Setting up iOS environment
   - Setting up Heroku environment
   - Communicating with backend endpoints
 
