@@ -6,10 +6,12 @@
     "start": "node server/server.js"
   },
   "dependencies": {
+    "clamp": "^1.0.1",
     "deco-ride-share-demo": "^1.1.0",
     "express": "^4.14.0",
     "pg": "^6.0.2",
     "react": "15.2.1",
+<<<<<<< HEAD
     "react-native": "^0.29.2",
     "react-native-fabric": "^0.3.0",
     "react-native-fabric-digits": "github:jeanlebrument/react-native-fabric-digits",
@@ -21,4 +23,10 @@
   "author": "",
   "license": "ISC",
   "description": ""
+=======
+    "react-native": "^0.29.1",
+    "react-native-swipe-cards": "0.0.7",
+    "react-native-swiper": "^1.4.7"
+  }
+>>>>>>> 3aabc839bf4c3564156ec521d41269081ed5da4f
 }

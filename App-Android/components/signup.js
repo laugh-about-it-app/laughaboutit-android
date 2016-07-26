@@ -27,11 +27,18 @@ class Signup extends Component {
       <TextInput style={style.textBox} placeholder="Username"
         onChangeText={(text) => this.setState({username: text})}/>
       <Text style={style.body}> {this.state.username} </Text>
-      <TouchableHighlight onPress={() => {
-        this.props.toPage('Home');
-      }}>
-        <Text> Sign Up! </Text>
-      </TouchableHighlight> 
+      <View style={style.buttonsContainer}>
+        <TouchableHighlight onPress={() => {
+          this.props.toPage('Home');
+        }}>
+          <Text> Login! </Text>
+        </TouchableHighlight> 
+        <TouchableHighlight onPress={() => {
+          this.props.toPage('Home');
+        }}>
+          <Text> Signup! </Text>
+        </TouchableHighlight>
+      </View>
       </View>
     );
   }
@@ -40,7 +47,7 @@ class Signup extends Component {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#eedd82'
   },
@@ -59,6 +66,10 @@ const style = StyleSheet.create({
   textBox: {
     height: 40,
     width: 300
+  },
+  buttonsContainer: {
+    flex: 1,
+    flexDirection: 'row'
   }
 });
 

@@ -17,9 +17,37 @@ import {
 import Intro from './App-Android/components/intro.js';
 import Home from './App-Android/components/home.js';
 import Signup from './App-Android/components/signup.js';
+import CreateCaption from './App-Android/components/caption.js';
+import LeaderBoard from './App-Android/components/leaderboards.js';
+import api from './App-Android/util/api.js';
 
 // Main purpose of this class is to act as a router/navigator for the app. 
 class laughaboutit extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      imageData: {url: 'https://s3-us-west-1.amazonaws.com/labitapp/dog1.jpeg'},
+      dailyCaptions: [{id: 0, caption_top: '', caption_bottom: '', likes: 0, dislikes: 0}]
+    };
+    this.getPicture();
+    this.getCaptions();
+  }
+
+  getPicture() {
+    console.log('****** STARTING GET DAILY RAW IMAGE ******* ');
+    api.getDailyRawImage((data) => {
+      console.log('******* THIS IS THE DATA CALLBACK********', JSON.parse(data._bodyText));
+      this.setState({imageData: JSON.parse(data._bodyText)});
+    });
+  }
+
+  getCaptions() {
+    api.getDailyCaptions((data) => {
+      console.log('********* THIS IS THE DAILY CAPTIONS ********', data);
+      this.setState({dailyCaptions: data});
+    });
+  }
 
   render() {
 
@@ -51,14 +79,21 @@ class laughaboutit extends Component {
       /* **************************** MAIN BODY OF THE ROUTER ******************************** */
 
       if (route.name === 'Intro') {
-        return <Intro title={'Welcome'} navigator={navigator} onForward={onForward} toPage={toPage} {...route.passProps}/>
+        return <Intro title={'Welcome'} navigator={navigator} onForward={onForward} toPage={toPage} imageData={this.state.imageData} {...route.passProps}/>
       }
       if (route.name === 'Home') {
-        return <Home title={'Home'} navigator={navigator} onForward={onForward} toPage={toPage} {...route.passProps}/>
+        this.getCaptions();
+        return <Home title={'Home'} navigator={navigator} onForward={onForward} toPage={toPage} imageData={this.state.imageData} captions={this.state.dailyCaptions} {...route.passProps}/>
       }
-
       if (route.name === 'Signup') {
         return <Signup title={'Signup'} navigator={navigator} onForward={onForward} toPage={toPage} {...route.passProps}/>
+      }
+      if (route.name === 'Create') {
+        return <CreateCaption title={'Create'} navigator={navigator} onForward={onForward} toPage={toPage} imageData={this.state.imageData} {...route.passProps}/>
+      }
+      if (route.name === 'TopRated') {
+        this.getCaptions();
+        return <LeaderBoard title={'topRated'} navigator={navigator} onForward={onForward} toPage={toPage} imageData={this.state.imageData} captions={this.state.dailyCaptions} {...route.passProps}/>
       }
     }
 
