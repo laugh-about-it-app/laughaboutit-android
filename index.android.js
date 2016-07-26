@@ -92,7 +92,6 @@ class laughaboutit extends Component {
         return <CreateCaption title={'Create'} navigator={navigator} onForward={onForward} toPage={toPage} imageData={this.state.imageData} {...route.passProps}/>
       }
       if (route.name === 'TopRated') {
-        this.getCaptions();
         return <LeaderBoard title={'topRated'} navigator={navigator} onForward={onForward} toPage={toPage} imageData={this.state.imageData} captions={this.state.dailyCaptions} {...route.passProps}/>
       }
     }
