@@ -11,7 +11,7 @@ Laugh About It is a social captioning app available for both Android and iOS whe
 
 The Android setup process is fun and engaging. Enjoy the ride.
 
-##### GETTING STARTED WITH REACT NATIVE 
+#### GETTING STARTED WITH REACT NATIVE 
 You will need Android Studio, node.js, the React Native command line tools, and Watchman.
 
 We recommend installing node and watchman via Homebrew.
@@ -27,7 +27,7 @@ Download and install [Android Studio](https://developer.android.com/studio/insta
 
 If you plan to make changes in Java code, we recommend Gradle Daemon which speeds up the build.
 
-##### ADD ANDROID COMMAND TO TERMINAL 
+#### ADD ANDROID COMMAND TO TERMINAL 
 
 If android command is not found in your terminal, edit your ~/.bash_profile by: 
 - `open ~/.bash_profile`
@@ -37,7 +37,7 @@ Add this line: export PATH=${PATH}:/Users/$(whoami)/Library/Android/sdk/platform
 - Then, test command $ android list targets
 - If you get a list of android versions returned, then you are ready for the next step.
 
-##### CREATE EMULATOR
+#### CREATE EMULATOR
 
 - In your project directory, use command `$ android create avd -n <name> -t <target> --abi default/x86_64`
 where <name> is any arbitrary name, and <target> is a name found in your android list targets (ex: "android-23")
@@ -49,7 +49,7 @@ For an issue where build tools were not found (ex: build tools v23.0.1 not found
 `$ open android`
 In the SDK manager window that pops up, find the SDK Build Tools version you are missing and install the packages related to it.
 
-##### IN THE APP REPO
+#### IN THE APP REPO
 
 Run `npm install` to install all dependencies. 
 Use command `$ export ANDROID_HOME=/Users/$(whoami)/Library/Android/sdk
@@ -59,7 +59,7 @@ Then, use `react-native run-android` to initiate the app, and it should load int
 the emulator.
 
 
-##### TROUBLESHOOTING
+#### TROUBLESHOOTING
 
 Sometimes your sdk.dir gets reset, just type in this command again: $ export ANDROID_HOME=/Users/$(whoami)/Library/Android/sdk
 (or wherever your sdk location is) and rerun the react-native run-android command.
